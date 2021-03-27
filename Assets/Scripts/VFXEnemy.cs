@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class VFXEnemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public ParticleSystem noticed, shoot, death;
+
+    public void NoticePlayer()
     {
-        
+        noticed.Play();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Shooting()
     {
-        
+        shoot.Play();
+    }
+
+    public void Death()
+    {
+        death.Play();
     }
 }

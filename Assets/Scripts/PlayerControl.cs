@@ -11,6 +11,8 @@ public class PlayerControl : MonoBehaviour
     public float rotSens;
     private float motX, motY;
 
+    public float punchPower;
+
     [HideInInspector]
     public bool moveActive = true;
 
@@ -70,4 +72,11 @@ public class PlayerControl : MonoBehaviour
             }
         }
     }
+
+    public void PunchEnemy(Rigidbody enemyRb)
+    {
+        //enemyRb.gameObject.transform.position += new Vector3(0, 10f, 0);
+        enemyRb.AddForce((playerBody.transform.forward + Vector3.up) * punchPower * Time.fixedDeltaTime, ForceMode.Impulse);
+    }
+
 }

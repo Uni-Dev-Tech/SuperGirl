@@ -35,4 +35,9 @@ public class PlayerAnimation : MonoBehaviour
             }
         }
     }
+
+    public void MakePunch()
+    {
+        playerAnimator.SetTrigger("Punch");
+    }
 }

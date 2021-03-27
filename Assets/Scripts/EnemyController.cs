@@ -6,6 +6,10 @@ using DG.Tweening;
 public class EnemyController : MonoBehaviour
 {
     public EnemyAnimation enemyAnimation;
+    public RagdolEffect ragdolEffect;
+    public VFXEnemy enemyVFX;
+
+    public Collider enemyCollider;
 
     public Rigidbody enemyRb;
     public float enemySpeedMotion;
@@ -21,27 +25,35 @@ public class EnemyController : MonoBehaviour
 
     private int moveDirection = 0;
 
+    private bool enemyDeactivated = false;
+
     private void Update()
     {
-        if (!playerWasNoticed)
-            SightZone(enemyRb.position, radiusOfSightZone, layerMask);
-        else
-            SightZoneDanger(enemyRb.position, radiusOfSightZone, layerMask);
+        if(!enemyDeactivated)
+        {
+            if (!playerWasNoticed)
+                SightZone(enemyRb.position, radiusOfSightZone, layerMask);
+            else
+                SightZoneDanger(enemyRb.position, radiusOfSightZone, layerMask);
+        }
     }
 
     private void FixedUpdate()
     {
-        if(playerWasNoticed)
+        if(!enemyDeactivated)
         {
-            if(Input.GetMouseButton(0))
+            if (playerWasNoticed)
             {
-                enemyAnimation.EnemyGoBack();
-                enemyRb.AddForce((enemyRb.transform.forward * enemySpeedMotion * Time.fixedDeltaTime) * moveDirection, ForceMode.VelocityChange);
-            }
-            else
-            {
-                enemyAnimation.EnemyStayStill();
-                enemyRb.velocity = Vector3.zero;
+                if (Input.GetMouseButton(0))
+                {
+                    enemyAnimation.EnemyGoBack();
+                    enemyRb.AddForce((enemyRb.transform.forward * enemySpeedMotion * Time.fixedDeltaTime) * moveDirection, ForceMode.VelocityChange);
+                }
+                else
+                {
+                    enemyAnimation.EnemyStayStill();
+                    enemyRb.velocity = Vector3.zero;
+                }
             }
         }
     }
@@ -55,6 +67,7 @@ public class EnemyController : MonoBehaviour
             {
                 playerWasNoticed = true;
                 SmoothRotationToTarget(enemyRb.transform, collider.transform.position, rotationSpeedToPlayer);
+                enemyVFX.NoticePlayer();
                 //Logs("Player in sight zone!");
             }
     }
@@ -136,6 +149,17 @@ public class EnemyController : MonoBehaviour
         enemyRb.velocity = Vector3.zero;
 
         enemyAnimation.EnemyStayStill();
+    }
+
+    public void DeactivateCurrentEnemy()
+    {
+        enemyVFX.Death();
+        EnemyToDeffaultCondition();
+        enemyDeactivated = true;
+        enemyRb.collisionDetectionMode = CollisionDetectionMode.Discrete;
+        enemyRb.isKinematic = true;
+        enemyRb.useGravity = false;
+        enemyCollider.enabled = false;
     }
 
     private void Logs(string message)

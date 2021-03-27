@@ -23,4 +23,9 @@ public class EnemyAnimation : MonoBehaviour
             enemyConditionStay = true;
         }
     }
+
+    public void DeactivateAnimator()
+    {
+        enemyAnimator.enabled = false;
+    }
 }
