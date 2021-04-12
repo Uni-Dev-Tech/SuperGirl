@@ -10,6 +10,8 @@ public class LevelControl : MonoBehaviour
     public float appearanceAnimationTime;
     public float delayBeforeAbleToPlay;
 
+    static public LevelControl instance;
+
     private void Start()
     {
         StartCoroutine(GameStart());
@@ -22,5 +24,10 @@ public class LevelControl : MonoBehaviour
         yield return new WaitForSeconds(delayBeforeAbleToPlay);
         playerAnimation.playerAnimationIsActive = true;
         playerControl.playerControlIsActive = true;
+    }
+
+    public void LevelFailed()
+    {
+
     }
 }

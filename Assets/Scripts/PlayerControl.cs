@@ -19,6 +19,8 @@ public class PlayerControl : MonoBehaviour
     private Vector3 motionDirection;
     private Vector3 mousePosition;
 
+    private float playerHealth = 1f;
+
     [HideInInspector] public bool playerControlIsActive = false;
     void Update()
     {
@@ -77,6 +79,17 @@ public class PlayerControl : MonoBehaviour
     {
         //enemyRb.gameObject.transform.position += new Vector3(0, 10f, 0);
         enemyRb.AddForce((playerBody.transform.forward + Vector3.up) * punchPower * Time.fixedDeltaTime, ForceMode.Impulse);
+    }
+
+    public void GetShot(float damage)
+    {
+        playerHealth -= damage;
+        UIManager.instance.RenewPlayerHealthInf(playerHealth);
+
+        if (playerHealth < 0)
+        {
+            LevelControl.instance.LevelFailed();
+        }
     }
 
 }

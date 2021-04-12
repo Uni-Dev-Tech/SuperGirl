@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     public EnemyAnimation enemyAnimation;
     public RagdolEffect ragdolEffect;
     public VFXEnemy enemyVFX;
+    public GameConfig GameConfig;
 
     public Collider enemyCollider;
 
@@ -26,6 +27,8 @@ public class EnemyController : MonoBehaviour
     private int moveDirection = 0;
 
     private bool enemyDeactivated = false;
+
+    private bool chargingGun = false;
 
     private void Update()
     {
@@ -114,6 +117,12 @@ public class EnemyController : MonoBehaviour
             if(raycastHit.transform.CompareTag("Player"))
             {
                 MoveFromPlayer(enemyRb.position, enemyPos);
+                if(!chargingGun)
+                {
+                    ShootPlayer(raycastHit.transform.gameObject);
+                    enemyVFX.Shooting();
+                    StartCoroutine(RechargeGun());
+                }
                 Debug.DrawRay(enemyRb.transform.position, enemyRb.transform.forward * aimLengthPossibility, Color.red);
                 //Logs("CatchedInAim");
             }
@@ -140,6 +149,15 @@ public class EnemyController : MonoBehaviour
             moveDirection = 0;
     }
 
+    private void ShootPlayer(GameObject player)
+    {
+        if(player.TryGetComponent(out PlayerControl playerControl))
+        {
+            playerControl.GetShot(GameConfig.GeneralGameplaySettings.enemyDamage);
+            chargingGun = true;
+        }
+    }
+
     private void EnemyToDeffaultCondition()
     {
         playerWasNoticed = false;
@@ -160,6 +178,12 @@ public class EnemyController : MonoBehaviour
         enemyRb.isKinematic = true;
         enemyRb.useGravity = false;
         enemyCollider.enabled = false;
+    }
+
+    private IEnumerator RechargeGun()
+    {
+        yield return new WaitForSeconds(GameConfig.GeneralGameplaySettings.timeForRechargeGun);
+        chargingGun = false;
     }
 
     private void Logs(string message)
