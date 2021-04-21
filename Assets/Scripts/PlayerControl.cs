@@ -5,8 +5,12 @@ using DG.Tweening;
 
 public class PlayerControl : MonoBehaviour
 {
+    public PlayerAnimation playerAnimation;
+    public RagdolEffect ragdolEffect;
+
     public Rigidbody playerRb;
     public GameObject playerBody;
+    public Collider playerCollider;
     public float speedPlayerMotion;
     public float rotSens;
     private float motX, motY;
@@ -88,8 +92,19 @@ public class PlayerControl : MonoBehaviour
 
         if (playerHealth < 0)
         {
+            playerAnimation.DeactivateAnimator();
+            DeactivatePlayer();
+            ragdolEffect.ActivateRagdollEffect();
             LevelControl.instance.LevelFailed();
         }
     }
 
+    private void DeactivatePlayer()
+    {
+        playerControlIsActive = false;
+        playerRb.collisionDetectionMode = CollisionDetectionMode.Discrete;
+        playerRb.isKinematic = true;
+        playerRb.useGravity = false;
+        playerCollider.enabled = false;
+    }
 }

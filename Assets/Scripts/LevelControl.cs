@@ -12,6 +12,16 @@ public class LevelControl : MonoBehaviour
 
     static public LevelControl instance;
 
+    private void Awake()
+    {
+        if(LevelControl.instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        LevelControl.instance = this;
+    }
+
     private void Start()
     {
         StartCoroutine(GameStart());
@@ -28,6 +38,7 @@ public class LevelControl : MonoBehaviour
 
     public void LevelFailed()
     {
-
+        FingerDirection.instance.useFingerDirection = false;
+        CompleteUI.instance.Lose();
     }
 }

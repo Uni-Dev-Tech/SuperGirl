@@ -28,17 +28,7 @@ public class CombatTrigger : MonoBehaviour
                     enemyController.DeactivateCurrentEnemy();
                     enemyController.ragdolEffect.ActivateRagdollEffect();
                     playerControl.PunchEnemy(enemyController.ragdolEffect.bodyRb);
-                    //playerAnimation.MakePunch();
                 }
-
-                //enemyController.enemyAnimation.DeactivateAnimator();
-                //enemyController.DeactivateCurrentEnemy();
-                //enemyController.ragdolEffect.ActivateRagdollEffect();
-                //enemyController.enemyAnimation.DeactivateAnimator();
-                //enemyController.DeactivateCurrentEnemy();
-                //enemyController.ragdolEffect.ActivateRagdollEffect();
-                //playerControl.PunchEnemy(enemyController.ragdolEffect.bodyRb);
-                //playerAnimation.MakePunch();
             }
         }
     }

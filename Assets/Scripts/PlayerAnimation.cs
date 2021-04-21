@@ -40,4 +40,9 @@ public class PlayerAnimation : MonoBehaviour
     {
         playerAnimator.SetTrigger("Punch");
     }
+
+    public void DeactivateAnimator()
+    {
+        playerAnimator.enabled = false;
+    }
 }
