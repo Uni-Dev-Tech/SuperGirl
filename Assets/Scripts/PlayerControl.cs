@@ -7,6 +7,7 @@ public class PlayerControl : MonoBehaviour
 {
     public PlayerAnimation playerAnimation;
     public RagdolEffect ragdolEffect;
+    public VFXPlayer playerVFX;
 
     public Rigidbody playerRb;
     public GameObject playerBody;
@@ -81,12 +82,13 @@ public class PlayerControl : MonoBehaviour
 
     public void PunchEnemy(Rigidbody enemyRb)
     {
-        //enemyRb.gameObject.transform.position += new Vector3(0, 10f, 0);
+        playerVFX.KillEnemy();
         enemyRb.AddForce((playerBody.transform.forward + Vector3.up) * punchPower * Time.fixedDeltaTime, ForceMode.Impulse);
     }
 
     public void GetShot(float damage)
     {
+        playerVFX.Damage();
         playerHealth -= damage;
         UIManager.instance.RenewPlayerHealthInf(playerHealth);
 
@@ -101,10 +103,18 @@ public class PlayerControl : MonoBehaviour
 
     private void DeactivatePlayer()
     {
+        playerVFX.Lose();
         playerControlIsActive = false;
         playerRb.collisionDetectionMode = CollisionDetectionMode.Discrete;
         playerRb.isKinematic = true;
         playerRb.useGravity = false;
         playerCollider.enabled = false;
+    }
+
+    public void WinLvl()
+    {
+        playerVFX.Win();
+        playerAnimation.Dance();
+        playerControlIsActive = false;
     }
 }

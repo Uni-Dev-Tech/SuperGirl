@@ -41,6 +41,11 @@ public class PlayerAnimation : MonoBehaviour
         playerAnimator.SetTrigger("Punch");
     }
 
+    public void Dance()
+    {
+        playerAnimator.SetTrigger("Win");
+    }
+
     public void DeactivateAnimator()
     {
         playerAnimator.enabled = false;

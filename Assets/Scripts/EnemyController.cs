@@ -26,7 +26,8 @@ public class EnemyController : MonoBehaviour
 
     private int moveDirection = 0;
 
-    private bool enemyDeactivated = false;
+    [HideInInspector]
+    public bool enemyDeactivated = false;
 
     private bool chargingGun = false;
 
@@ -68,6 +69,7 @@ public class EnemyController : MonoBehaviour
         foreach(Collider collider in colliders)
             if (collider.gameObject.CompareTag("Player"))
             {
+                VFXPlayer.instance.Anger();
                 playerWasNoticed = true;
                 SmoothRotationToTarget(enemyRb.transform, collider.transform.position, rotationSpeedToPlayer);
                 enemyVFX.NoticePlayer();
@@ -171,6 +173,7 @@ public class EnemyController : MonoBehaviour
 
     public void DeactivateCurrentEnemy()
     {
+        LevelControl.instance.EnemyKilled();
         enemyVFX.Death();
         EnemyToDeffaultCondition();
         enemyDeactivated = true;

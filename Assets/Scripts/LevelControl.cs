@@ -10,6 +10,11 @@ public class LevelControl : MonoBehaviour
     public float appearanceAnimationTime;
     public float delayBeforeAbleToPlay;
 
+    public int enemyNeedToKill;
+    private int enemyKilled = 0;
+
+    private bool levelComplete = false;
+
     static public LevelControl instance;
 
     private void Awake()
@@ -27,6 +32,16 @@ public class LevelControl : MonoBehaviour
         StartCoroutine(GameStart());
     }
 
+    private void Update()
+    {
+        if(!levelComplete)
+            if (enemyNeedToKill <= enemyKilled)
+            {
+                levelComplete = true;
+                LevelWin();
+            }
+    }
+
     private IEnumerator GameStart()
     {
         yield return new WaitForSeconds(appearanceAnimationTime);
@@ -39,6 +54,18 @@ public class LevelControl : MonoBehaviour
     public void LevelFailed()
     {
         FingerDirection.instance.useFingerDirection = false;
-        CompleteUI.instance.Lose();
+        StartCoroutine(CompleteUI.instance.DelayBeforeComplete(false, 1f));
+    }
+
+    private void LevelWin()
+    {
+        FingerDirection.instance.useFingerDirection = false;
+        StartCoroutine(CompleteUI.instance.DelayBeforeComplete(true, 1f));
+        playerControl.WinLvl();
+    }
+
+    public void EnemyKilled()
+    {
+        enemyKilled++;
     }
 }
