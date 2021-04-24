@@ -82,7 +82,7 @@ Material:
     - _DirY: 0
     - _DontMix: 0
     - _DstBlend: 0
-    - _Exponent: 1
+    - _Exponent: 1.2
     - _Fade: 1
     - _FogHeight: 10
     - _FogYStartPos: 0
@@ -104,7 +104,7 @@ Material:
     - _GradientHeight_T: 1
     - _GradientSpace: 0
     - _HFogEnable: 0
-    - _Intensity: 1
+    - _Intensity: 1.3
     - _LMPower: 1
     - _LmapBlendingMode: 0
     - _LmapEnable: 0

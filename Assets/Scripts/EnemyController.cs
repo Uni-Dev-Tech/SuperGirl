@@ -112,7 +112,7 @@ public class EnemyController : MonoBehaviour
         RaycastHit raycastHit = new RaycastHit();
         Ray ray = new Ray(enemyRb.transform.position, enemyRb.transform.forward * aimLengthPossibility);
 
-        if (Physics.Raycast(ray, out raycastHit, aimLength, layerMask))
+        if (Physics.Raycast(ray, out raycastHit, aimLength/*, layerMask*/))
         {
             if(raycastHit.transform.CompareTag("Player"))
             {
