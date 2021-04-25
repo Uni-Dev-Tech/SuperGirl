@@ -2496,11 +2496,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22402eb3670d06419b8d5e3ebc350af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameConfig: {fileID: 11400000, guid: 887ae856d4af4b84e9f92c30aa0113a0, type: 2}
   hostageVFX: {fileID: 92605369}
   hostageAnimation: {fileID: 92605370}
   enemyStates:
   - {fileID: 1070118335}
-  radiusZone: 10
 --- !u!1001 &95696806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2666,7 +2666,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 3.1064172e-11, y: 0.0050980193, z: 0.000130289}
+  m_ConnectedAnchor: {x: 3.1064228e-11, y: 0.0050980174, z: 0.00013028848}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -3148,7 +3148,7 @@ PrefabInstance:
     - target: {fileID: 2333437092801378403, guid: 21d4564128a7bb04681c9f29c343e0c2,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 2333437092801378403, guid: 21d4564128a7bb04681c9f29c343e0c2,
         type: 3}
@@ -5558,7 +5558,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0029861673, y: 0.0035596369, z: -0.0006782741}
+  m_ConnectedAnchor: {x: 0.0029861673, y: 0.0035596346, z: -0.0006782709}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -5972,13 +5972,9 @@ MonoBehaviour:
   GameConfig: {fileID: 11400000, guid: 887ae856d4af4b84e9f92c30aa0113a0, type: 2}
   enemyCollider: {fileID: 237449035}
   enemyRb: {fileID: 237449034}
-  enemySpeedMotion: 7.7
-  radiusOfSightZone: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
-  rotationSpeedToPlayer: 0.5
-  aimLengthPossibility: 10
   enemyDeactivated: 0
 --- !u!54 &237449034
 Rigidbody:
@@ -6654,7 +6650,7 @@ PrefabInstance:
     - target: {fileID: 8989791832446840857, guid: 4c7796793c01a3141b63022aedc330d2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8989791832446840857, guid: 4c7796793c01a3141b63022aedc330d2,
         type: 3}
@@ -10571,11 +10567,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22402eb3670d06419b8d5e3ebc350af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameConfig: {fileID: 11400000, guid: 887ae856d4af4b84e9f92c30aa0113a0, type: 2}
   hostageVFX: {fileID: 413151265}
   hostageAnimation: {fileID: 413151266}
   enemyStates:
   - {fileID: 1858510148}
-  radiusZone: 10
 --- !u!1 &414428716 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3627632174947603720, guid: f7d4b943c25cc374b8bdeb428edda149,
@@ -11361,27 +11357,27 @@ PrefabInstance:
     - target: {fileID: 4130047990820580219, guid: 6faa42109f3b39f4d980359124c3cb3a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4130047990820580219, guid: 6faa42109f3b39f4d980359124c3cb3a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.4
+      value: -12.443
       objectReference: {fileID: 0}
     - target: {fileID: 4130047990820580219, guid: 6faa42109f3b39f4d980359124c3cb3a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0708418
+      value: 1.077
       objectReference: {fileID: 0}
     - target: {fileID: 4130047990820580219, guid: 6faa42109f3b39f4d980359124c3cb3a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.39
+      value: -22.683
       objectReference: {fileID: 0}
     - target: {fileID: 4130047990820580219, guid: 6faa42109f3b39f4d980359124c3cb3a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9980843
+      value: 0.9967644
       objectReference: {fileID: 0}
     - target: {fileID: 4130047990820580219, guid: 6faa42109f3b39f4d980359124c3cb3a,
         type: 3}
@@ -11391,7 +11387,7 @@ PrefabInstance:
     - target: {fileID: 4130047990820580219, guid: 6faa42109f3b39f4d980359124c3cb3a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.06186962
+      value: -0.08037826
       objectReference: {fileID: 0}
     - target: {fileID: 4130047990820580219, guid: 6faa42109f3b39f4d980359124c3cb3a,
         type: 3}
@@ -11406,7 +11402,7 @@ PrefabInstance:
     - target: {fileID: 4130047990820580219, guid: 6faa42109f3b39f4d980359124c3cb3a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -7.094
+      value: -9.221
       objectReference: {fileID: 0}
     - target: {fileID: 4130047990820580219, guid: 6faa42109f3b39f4d980359124c3cb3a,
         type: 3}
@@ -12672,11 +12668,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22402eb3670d06419b8d5e3ebc350af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameConfig: {fileID: 11400000, guid: 887ae856d4af4b84e9f92c30aa0113a0, type: 2}
   hostageVFX: {fileID: 514978238}
   hostageAnimation: {fileID: 514978239}
   enemyStates:
   - {fileID: 1263445970}
-  radiusZone: 10
 --- !u!4 &515030267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7919275390202649433, guid: 081dc4f08fbc04e4fbe7c287a49829f6,
@@ -12837,7 +12833,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.6825653e-10, y: 0.0036629075, z: 0.0000000052386877}
+  m_ConnectedAnchor: {x: -6.821211e-11, y: 0.0036629061, z: 0.0000000033760432}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -17682,7 +17678,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.001972074, y: -0.0011334079, z: 0.00076145923}
+  m_ConnectedAnchor: {x: 0.0019720737, y: -0.0011334096, z: 0.00076145295}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -22063,7 +22059,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0019720735, y: -0.0011334079, z: 0.0007614611}
+  m_ConnectedAnchor: {x: -0.0019720732, y: -0.0011334086, z: 0.0007614546}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -22142,12 +22138,12 @@ PrefabInstance:
     - target: {fileID: 2492452761657989434, guid: 62edc4ee978a703489e05ccc07d9f824,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2492452761657989434, guid: 62edc4ee978a703489e05ccc07d9f824,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.32
+      value: -12.353
       objectReference: {fileID: 0}
     - target: {fileID: 2492452761657989434, guid: 62edc4ee978a703489e05ccc07d9f824,
         type: 3}
@@ -22157,7 +22153,7 @@ PrefabInstance:
     - target: {fileID: 2492452761657989434, guid: 62edc4ee978a703489e05ccc07d9f824,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.64
+      value: -22.347
       objectReference: {fileID: 0}
     - target: {fileID: 2492452761657989434, guid: 62edc4ee978a703489e05ccc07d9f824,
         type: 3}
@@ -24995,12 +24991,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22402eb3670d06419b8d5e3ebc350af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameConfig: {fileID: 11400000, guid: 887ae856d4af4b84e9f92c30aa0113a0, type: 2}
   hostageVFX: {fileID: 1006429436}
   hostageAnimation: {fileID: 1006429437}
   enemyStates:
   - {fileID: 1450482404}
   - {fileID: 237449033}
-  radiusZone: 10
 --- !u!4 &1008688625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2130234204341834370, guid: 7dcf608f1c1348443b81d8440de96d0a,
@@ -26440,7 +26436,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000000015716066, y: 0.0038536105, z: 0.000000003026798}
+  m_ConnectedAnchor: {x: 0.0000000019790602, y: 0.0038536103, z: -0.0000000017462296}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -26585,13 +26581,9 @@ MonoBehaviour:
   GameConfig: {fileID: 11400000, guid: 887ae856d4af4b84e9f92c30aa0113a0, type: 2}
   enemyCollider: {fileID: 1070118337}
   enemyRb: {fileID: 1070118336}
-  enemySpeedMotion: 7.7
-  radiusOfSightZone: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
-  rotationSpeedToPlayer: 0.5
-  aimLengthPossibility: 10
   enemyDeactivated: 0
 --- !u!54 &1070118336
 Rigidbody:
@@ -26981,11 +26973,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22402eb3670d06419b8d5e3ebc350af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameConfig: {fileID: 11400000, guid: 887ae856d4af4b84e9f92c30aa0113a0, type: 2}
   hostageVFX: {fileID: 1077300660}
   hostageAnimation: {fileID: 1077300661}
   enemyStates:
   - {fileID: 1070118335}
-  radiusZone: 10
 --- !u!1001 &1077496085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29357,15 +29349,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed1d5ed1fe2e3458d0ca710b8ca7a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameConfig: {fileID: 11400000, guid: 887ae856d4af4b84e9f92c30aa0113a0, type: 2}
   playerAnimation: {fileID: 1158804847}
   ragdolEffect: {fileID: 1158804848}
   playerVFX: {fileID: 793109693}
   playerRb: {fileID: 1158804844}
   playerBody: {fileID: 502257637}
   playerCollider: {fileID: 1158804845}
-  speedPlayerMotion: 400
-  rotSens: 5
-  punchPower: 25000
   moveActive: 1
   playerControlIsActive: 0
 --- !u!54 &1158804844
@@ -29394,10 +29384,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.54
-  m_Height: 3
+  m_Radius: 0.4800752
+  m_Height: 2.8194656
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.010923693, y: -0.09026746, z: 0}
 --- !u!4 &1158804846
 Transform:
   m_ObjectHideFlags: 0
@@ -29406,8 +29396,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158804842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.11, y: 1.917, z: 12.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.11, y: 2.191, z: 12.3}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 502257639}
   - {fileID: 783176949}
@@ -30383,7 +30373,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.7553248e-10, y: 0.0036629057, z: 0.0000000037252894}
+  m_ConnectedAnchor: {x: 4.1563908e-10, y: 0.0036629057, z: 0.00000000197906}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -31098,7 +31088,7 @@ PrefabInstance:
     - target: {fileID: 1860948917634437191, guid: 2de9515bbfa6d694f801e31404ebde1c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1860948917634437191, guid: 2de9515bbfa6d694f801e31404ebde1c,
         type: 3}
@@ -31270,13 +31260,9 @@ MonoBehaviour:
   GameConfig: {fileID: 11400000, guid: 887ae856d4af4b84e9f92c30aa0113a0, type: 2}
   enemyCollider: {fileID: 1263445972}
   enemyRb: {fileID: 1263445971}
-  enemySpeedMotion: 7.7
-  radiusOfSightZone: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
-  rotationSpeedToPlayer: 0.5
-  aimLengthPossibility: 10
   enemyDeactivated: 0
 --- !u!54 &1263445971
 Rigidbody:
@@ -35681,13 +35667,9 @@ MonoBehaviour:
   GameConfig: {fileID: 11400000, guid: 887ae856d4af4b84e9f92c30aa0113a0, type: 2}
   enemyCollider: {fileID: 1450482406}
   enemyRb: {fileID: 1450482405}
-  enemySpeedMotion: 7.7
-  radiusOfSightZone: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
-  rotationSpeedToPlayer: 0.5
-  aimLengthPossibility: 10
   enemyDeactivated: 0
 --- !u!54 &1450482405
 Rigidbody:
@@ -38228,7 +38210,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.1262763e-10, y: 0.00276428, z: -0.00023619711}
+  m_ConnectedAnchor: {x: -1.12627074e-10, y: 0.0027642802, z: -0.00023619595}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -41173,7 +41155,7 @@ PrefabInstance:
     - target: {fileID: 6248760401869879634, guid: ac90e08a6a273ba43b6cdefe92ef2e66,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6248760401869879634, guid: ac90e08a6a273ba43b6cdefe92ef2e66,
         type: 3}
@@ -41498,13 +41480,9 @@ MonoBehaviour:
   GameConfig: {fileID: 11400000, guid: 887ae856d4af4b84e9f92c30aa0113a0, type: 2}
   enemyCollider: {fileID: 1648413754}
   enemyRb: {fileID: 1648413753}
-  enemySpeedMotion: 7.7
-  radiusOfSightZone: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
-  rotationSpeedToPlayer: 0.5
-  aimLengthPossibility: 10
   enemyDeactivated: 0
 --- !u!54 &1648413753
 Rigidbody:
@@ -44040,7 +44018,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000000013969841, y: 0.003853613, z: 0.000000001920853}
+  m_ConnectedAnchor: {x: -0.0000000013387763, y: 0.0038536126, z: -0.0000000028521758}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -48181,13 +48159,9 @@ MonoBehaviour:
   GameConfig: {fileID: 11400000, guid: 887ae856d4af4b84e9f92c30aa0113a0, type: 2}
   enemyCollider: {fileID: 1858510150}
   enemyRb: {fileID: 1858510149}
-  enemySpeedMotion: 7.7
-  radiusOfSightZone: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
-  rotationSpeedToPlayer: 0.5
-  aimLengthPossibility: 10
   enemyDeactivated: 0
 --- !u!54 &1858510149
 Rigidbody:
@@ -50650,7 +50624,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0029861666, y: 0.0035596362, z: -0.0006782728}
+  m_ConnectedAnchor: {x: -0.0029861666, y: 0.0035596339, z: -0.00067826954}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:

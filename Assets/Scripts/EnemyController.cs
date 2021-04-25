@@ -11,15 +11,8 @@ public class EnemyController : MonoBehaviour
     public GameConfig GameConfig;
 
     public Collider enemyCollider;
-
     public Rigidbody enemyRb;
-    public float enemySpeedMotion;
-
-    public float radiusOfSightZone;
     public LayerMask layerMask;
-
-    public float rotationSpeedToPlayer;
-    public float aimLengthPossibility;
 
     private bool playerWasNoticed = false;
     private bool followThePlayer = false;
@@ -28,7 +21,6 @@ public class EnemyController : MonoBehaviour
 
     [HideInInspector]
     public bool enemyDeactivated = false;
-
     private bool chargingGun = false;
 
     private void Update()
@@ -36,9 +28,9 @@ public class EnemyController : MonoBehaviour
         if(!enemyDeactivated)
         {
             if (!playerWasNoticed)
-                SightZone(enemyRb.position, radiusOfSightZone, layerMask);
+                SightZone(enemyRb.position, GameConfig.EnemySettings.radiusOfSightZone, layerMask);
             else
-                SightZoneDanger(enemyRb.position, radiusOfSightZone, layerMask);
+                SightZoneDanger(enemyRb.position, GameConfig.EnemySettings.radiusOfSightZone, layerMask);
         }
     }
 
@@ -51,7 +43,7 @@ public class EnemyController : MonoBehaviour
                 if (Input.GetMouseButton(0))
                 {
                     enemyAnimation.EnemyGoBack();
-                    enemyRb.AddForce((enemyRb.transform.forward * enemySpeedMotion * Time.fixedDeltaTime) * moveDirection, ForceMode.VelocityChange);
+                    enemyRb.AddForce((enemyRb.transform.forward * GameConfig.EnemySettings.enemySpeed * Time.fixedDeltaTime) * moveDirection, ForceMode.VelocityChange);
                 }
                 else
                 {
@@ -71,7 +63,7 @@ public class EnemyController : MonoBehaviour
             {
                 VFXPlayer.instance.Anger();
                 playerWasNoticed = true;
-                SmoothRotationToTarget(enemyRb.transform, collider.transform.position, rotationSpeedToPlayer);
+                SmoothRotationToTarget(enemyRb.transform, collider.transform.position, GameConfig.EnemySettings.rotationSpeedToPlayer);
                 enemyVFX.NoticePlayer();
                 //Logs("Player in sight zone!");
             }
@@ -99,7 +91,7 @@ public class EnemyController : MonoBehaviour
                 if(followThePlayer)
                     enemyRb.transform.LookAt(collider.transform);
 
-                AimOnPlayer(enemyPos, aimLengthPossibility);
+                AimOnPlayer(enemyPos, GameConfig.EnemySettings.aimLengthPossibility);
                 playerInZone = true;
             }
 
@@ -112,9 +104,9 @@ public class EnemyController : MonoBehaviour
     private void AimOnPlayer(Vector3 enemyPos, float aimLength)
     {
         RaycastHit raycastHit = new RaycastHit();
-        Ray ray = new Ray(enemyRb.transform.position, enemyRb.transform.forward * aimLengthPossibility);
+        Ray ray = new Ray(enemyRb.transform.position, enemyRb.transform.forward * GameConfig.EnemySettings.aimLengthPossibility);
 
-        if (Physics.Raycast(ray, out raycastHit, aimLength/*, layerMask*/))
+        if (Physics.Raycast(ray, out raycastHit, aimLength))
         {
             if(raycastHit.transform.CompareTag("Player"))
             {
@@ -125,7 +117,7 @@ public class EnemyController : MonoBehaviour
                     enemyVFX.Shooting();
                     StartCoroutine(RechargeGun());
                 }
-                Debug.DrawRay(enemyRb.transform.position, enemyRb.transform.forward * aimLengthPossibility, Color.red);
+                Debug.DrawRay(enemyRb.transform.position, enemyRb.transform.forward * GameConfig.EnemySettings.aimLengthPossibility, Color.red);
                 //Logs("CatchedInAim");
             }
         }
@@ -155,7 +147,7 @@ public class EnemyController : MonoBehaviour
     {
         if(player.TryGetComponent(out PlayerControl playerControl))
         {
-            playerControl.GetShot(GameConfig.GeneralGameplaySettings.enemyDamage);
+            playerControl.GetShot(GameConfig.EnemySettings.enemyDamage);
             chargingGun = true;
         }
     }
@@ -185,7 +177,7 @@ public class EnemyController : MonoBehaviour
 
     private IEnumerator RechargeGun()
     {
-        yield return new WaitForSeconds(GameConfig.GeneralGameplaySettings.timeForRechargeGun);
+        yield return new WaitForSeconds(GameConfig.EnemySettings.timeForRechargeGun);
         chargingGun = false;
     }
 

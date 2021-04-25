@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class PlayerControl : MonoBehaviour
 {
+    public GameConfig GameConfig;
     public PlayerAnimation playerAnimation;
     public RagdolEffect ragdolEffect;
     public VFXPlayer playerVFX;
@@ -12,11 +13,8 @@ public class PlayerControl : MonoBehaviour
     public Rigidbody playerRb;
     public GameObject playerBody;
     public Collider playerCollider;
-    public float speedPlayerMotion;
-    public float rotSens;
-    private float motX, motY;
 
-    public float punchPower;
+    private float motX, motY;
 
     [HideInInspector]
     public bool moveActive = true;
@@ -59,7 +57,7 @@ public class PlayerControl : MonoBehaviour
             {
                 if (Input.GetMouseButton(0))
                 {
-                    Vector3 lookDirection = new Vector3(dirX * rotSens, playerBody.transform.position.y, dirY * rotSens);
+                    Vector3 lookDirection = new Vector3(dirX * GameConfig.PlayerSettings.rotationSens, playerBody.transform.position.y, dirY * GameConfig.PlayerSettings.rotationSens);
 
                     if (Input.mousePosition != mousePosition)
                     {
@@ -75,7 +73,7 @@ public class PlayerControl : MonoBehaviour
         {
             if (moveActive)
             {
-                playerRb.velocity = motionDirection * speedPlayerMotion * Time.fixedDeltaTime;
+                playerRb.velocity = motionDirection * GameConfig.PlayerSettings.playerSpeed * Time.fixedDeltaTime;
             }
         }
     }
@@ -83,7 +81,7 @@ public class PlayerControl : MonoBehaviour
     public void PunchEnemy(Rigidbody enemyRb)
     {
         playerVFX.KillEnemy();
-        enemyRb.AddForce((playerBody.transform.forward + Vector3.up) * punchPower * Time.fixedDeltaTime, ForceMode.Impulse);
+        enemyRb.AddForce((playerBody.transform.forward + Vector3.up) * GameConfig.PlayerSettings.punchPower * Time.fixedDeltaTime, ForceMode.Impulse);
     }
 
     public void GetShot(float damage)

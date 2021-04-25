@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class HostageControl : MonoBehaviour
 {
+    public GameConfig GameConfig;
     public VFXHostage hostageVFX;
     public HostageAnimation hostageAnimation;
 
     public EnemyController[] enemyStates;
-
-    public float radiusZone;
 
     private bool hostageInDanger = true;
     private bool playerWasNoticed = false;
@@ -44,7 +43,7 @@ public class HostageControl : MonoBehaviour
 
     private void ReactionOnPlayer()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, radiusZone);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, GameConfig.HostageSettings.radiusOfSightZone);
 
         foreach (Collider collider in colliders)
             if (collider.gameObject.CompareTag("Player"))

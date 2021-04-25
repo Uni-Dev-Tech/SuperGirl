@@ -12,6 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841ab31ea5d508a44a8c1bc09abd1534, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  GeneralGameplaySettings:
+  EnemySettings:
     enemyDamage: 0.05
     timeForRechargeGun: 1.5
+    enemySpeed: 9
+    radiusOfSightZone: 10
+    rotationSpeedToPlayer: 0.5
+    aimLengthPossibility: 10
+  HostageSettings:
+    radiusOfSightZone: 10
+  PlayerSettings:
+    playerSpeed: 400
+    rotationSens: 5
+    punchPower: 25000
